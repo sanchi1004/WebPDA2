@@ -44,6 +44,11 @@ body {
 .stats {
     margin-top: 20px;
     font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
 }
 
 button {
