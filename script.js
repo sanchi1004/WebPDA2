@@ -37,3 +37,11 @@ function updateTimer() {
     let elapsed = Math.floor((new Date() - startTime) / 1000);
     timerDisplay.innerText = `Time: ${elapsed}s`;
 }
+function calculateResults() {
+    clearInterval(interval);
+    let elapsedMinutes = (new Date() - startTime) / 60000;
+    let wpm = Math.round((correctTyped / 5) / elapsedMinutes);
+    let accuracy = ((correctTyped / totalTyped) * 100).toFixed(2);
+    wpmDisplay.innerText = `WPM: ${isNaN(wpm) ? 0 : wpm}`;
+    accuracyDisplay.innerText = `Accuracy: ${isNaN(accuracy) ? 0 : accuracy}%`;
+}
