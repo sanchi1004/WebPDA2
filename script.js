@@ -17,3 +17,19 @@ let startTime, interval, currentSentence, totalTyped = 0, correctTyped = 0, isRu
 function getRandomSentence() {
     return sentences[Math.floor(Math.random() * sentences.length)];
 }
+
+function startTest() {
+    currentSentence = getRandomSentence();
+    sentenceDisplay.innerText = currentSentence;
+    inputField.value = "";
+    inputField.disabled = false;
+    inputField.focus();
+    totalTyped = 0;
+    correctTyped = 0;
+    isRunning = false;
+    startTime = null;
+    clearInterval(interval);
+    timerDisplay.innerText = "Time: 0s";
+    wpmDisplay.innerText = "WPM: 0";
+    accuracyDisplay.innerText = "Accuracy: 0%";
+}
