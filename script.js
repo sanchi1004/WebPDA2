@@ -33,3 +33,7 @@ function startTest() {
     wpmDisplay.innerText = "WPM: 0";
     accuracyDisplay.innerText = "Accuracy: 0%";
 }
+function updateTimer() {
+    let elapsed = Math.floor((new Date() - startTime) / 1000);
+    timerDisplay.innerText = `Time: ${elapsed}s`;
+}
