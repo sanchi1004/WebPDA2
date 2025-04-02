@@ -45,3 +45,23 @@ function calculateResults() {
     wpmDisplay.innerText = `WPM: ${isNaN(wpm) ? 0 : wpm}`;
     accuracyDisplay.innerText = `Accuracy: ${isNaN(accuracy) ? 0 : accuracy}%`;
 }
+inputField.addEventListener("input", () => {
+    if (!isRunning) {
+        startTime = new Date();
+        isRunning = true;
+        interval = setInterval(updateTimer, 1000);
+    }
+
+    totalTyped++;
+    let inputText = inputField.value;
+    correctTyped = [...inputText].filter((char, index) => char === currentSentence[index]).length;
+
+    if (inputText === currentSentence) {
+        calculateResults();
+        inputField.disabled = true;
+    }
+});
+
+restartBtn.addEventListener("click", startTest);
+
+window.onload = startTest;
