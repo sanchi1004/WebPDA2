@@ -2,7 +2,8 @@ const sentences = [
     "The quick brown fox jumps over the lazy dog.",
     "JavaScript makes web development exciting.",
     "Practice typing to improve your speed and accuracy.",
-    "A journey of a thousand miles begins with a single step."
+    "A journey of a thousand miles begins with a single step.",
+    "An apple a day keeps the doctor away."
 ];
 
 const sentenceDisplay = document.getElementById("sentence");
