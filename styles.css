@@ -57,9 +57,9 @@ body {
 }
 button {
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 16px;
-    background: #667eea;
+    background: #ff4d6d;
     color: white;
     border: none;
     cursor: pointer;
@@ -69,6 +69,7 @@ button {
 }
 
 button:hover {
-    background-color: #5643a7;
+    background-color: #ff007f;
     transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(255, 0, 128, 0.4);
 }
