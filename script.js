@@ -6,14 +6,13 @@ const sentences = [
     "An apple a day keeps the doctor away."
 ];
 
-const sentenceDisplay = document.getElementById("sentence");
-const inputField = document.getElementById("input");
-const timerDisplay = document.getElementById("timer");
-const wpmDisplay = document.getElementById("wpm");
-const accuracyDisplay = document.getElementById("accuracy");
-const restartBtn = document.getElementById("restart");
+const box = document.getElementById("sentence");
+const input = document.getElementById("input");
+const time = document.getElementById("timer");
+const speed = document.getElementById("wpm");
+const restart = document.getElementById("restart");
 
-let startTime, interval, currentSentence, totalTyped = 0, correctTyped = 0, isRunning = false;
+let start, timer, currentsentence;
 
 function getRandomSentence() {
     return sentences[Math.floor(Math.random() * sentences.length)];
