@@ -19,49 +19,37 @@ function getRandomSentence() {
 }
 
 function startTest() {
-    currentSentence = getRandomSentence();
-    sentenceDisplay.innerText = currentSentence;
-    inputField.value = "";
-    inputField.disabled = false;
-    inputField.focus();
-    totalTyped = 0;
-    correctTyped = 0;
-    isRunning = false;
-    startTime = null;
-    clearInterval(interval);
-    timerDisplay.innerText = "Time: 0s";
-    wpmDisplay.innerText = "WPM: 0";
-    accuracyDisplay.innerText = "Accuracy: 0%";
+    currentsentence = getRandomSentence();
+    box.innerText = currentsentence;
+    input.value = "";
+    input.disabled = false;
+    input.focus();
+    resetstats();
 }
-function updateTimer() {
-    let elapsed = Math.floor((new Date() - startTime) / 1000);
-    timerDisplay.innerText = `Time: ${elapsed}s`;
+function updateTime() {
+    let seconds = Math.floor((new Date() - startTime) / 1000);
+    time.innerText = `Time: ${seconds}s`;
 }
 function calculateResults() {
     clearInterval(interval);
-    let elapsedMinutes = (new Date() - startTime) / 60000;
-    let wpm = Math.round((correctTyped / 5) / elapsedMinutes);
-    let accuracy = ((correctTyped / totalTyped) * 100).toFixed(2);
-    wpmDisplay.innerText = `WPM: ${isNaN(wpm) ? 0 : wpm}`;
-    accuracyDisplay.innerText = `Accuracy: ${isNaN(accuracy) ? 0 : accuracy}%`;
+    let minutes = (new Date() - startTime) / 60000;
+    let wpm = Math.round((totalKeys / 5) / minutes);
+    speed.innerText = `WPM: ${isNaN(wpm) ? 0 : wpm}`;
 }
 inputField.addEventListener("input", () => {
-    if (!isRunning) {
+    if (!running) {
         startTime = new Date();
-        isRunning = true;
-        interval = setInterval(updateTimer, 1000);
+        running = true;
+        timer = setInterval(updateTime, 1000);
     }
 
-    totalTyped++;
-    let inputText = inputField.value;
-    correctTyped = [...inputText].filter((char, index) => char === currentSentence[index]).length;
-
-    if (inputText === currentSentence) {
+    totalKeys++;
+    if (input.value === currentsentence) {
         calculateResults();
-        inputField.disabled = true;
+        input.disabled = true;
     }
 });
 
-restartBtn.addEventListener("click", startTest);
+restart.addEventListener("click", startTest);
 
 window.onload = startTest;
