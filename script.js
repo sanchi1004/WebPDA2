@@ -35,7 +35,7 @@ function startTest() {
     resetstats();
 }
 function updateTime() {
-    let seconds = Math.floor((new Date() - startTime) / 1000);
+    let seconds = Math.floor((new Date() - start) / 1000);
     time.innerText = `Time: ${seconds}s`;
 }
 function calculateResults() {
@@ -44,7 +44,7 @@ function calculateResults() {
     let wpm = Math.round((totalKeys / 5) / minutes);
     speed.innerText = `WPM: ${isNaN(wpm) ? 0 : wpm}`;
 }
-inputField.addEventListener("input", () => {
+input.addEventListener("input", () => {
     if (!running) {
         start = new Date();
         running = true;
